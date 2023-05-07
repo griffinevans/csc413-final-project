@@ -1,0 +1,1 @@
+My project is a text-based action role-playing game where the player guides a character through a dungeon with monsters and treasure. The controls will be entirely text-based, and the user will type commands such as "attack monster" "use potion" or "open door"
