@@ -3,34 +3,29 @@ class Room {
   private String description;
   private Room northRoom;
   private Room southRoom;
-  private Room eastRoom;
-  private Room westRoom;
+  private String roomType;
+  public boolean explored;
 
   public Room(String description) {
     this.description = description;
-    northRoom = new Room("An empty room", this, "north");
+    explored = false;
+    northRoom = new Room("A plain room", GameRNG.generateRoomType(), this);
   }
 
   /*
-   * Create a room connected to another room. room will be the origin point, and direction is where the new room is, relative to the parent room. For example, to create a room north of the current room you would call new Room(desc, this, north).
+   * Create a room connected to another room. room will be the origin point, and direction is where the new room is, relative to the parent room. 
    */
-  public Room(String description, Room room, String direction) {
+  public Room(String description, String roomType, Room parentRoom) {
     this.description = description;
-    switch(direction) {
-      case "north":
-        southRoom = room;
-      case "south":
-        northRoom = room;
-      case "east":
-        westRoom = room;
-      case "west":
-        eastRoom = room;
-      default:
-        break;
-    }
+    this.roomType = roomType;
+    southRoom = parentRoom;
   }
 
   public Room getNorthRoom() {
+    if (northRoom != null) {
+      return northRoom;
+    }
+    northRoom = new Room("A plain room", GameRNG.generateRoomType(), this);
     return northRoom;
   }
 
@@ -42,6 +37,11 @@ class Room {
     return southRoom;
   }
 
+  public String getRoomType() {
+    return roomType;
+  }
+
+  /*
   public void setSouthRoom(Room r) {
     southRoom = r;
   }
@@ -61,6 +61,7 @@ class Room {
   public void setWestRoom(Room r) {
     westRoom = r;
   }
+  */
   
   public String getDescription() {
     return description;

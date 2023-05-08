@@ -63,12 +63,30 @@ class GameManager {
     }
   }
 
+  //When we move to a new room, generate a room to the north of that room
   private void moveRooms(String direction) {
     System.out.println("You enter the " + direction + " door.");
-    if (direction == "north")
+    if (direction == "north"){
       currentRoom = currentRoom.getNorthRoom();
+      currentRoom.explored = true;
+      exploreRoom(currentRoom);
+    }
+
     else if (direction == "south")
       currentRoom = currentRoom.getSouthRoom();
+
+  }
+
+  private void exploreRoom(Room room) {
+    if (room.getRoomType().equals("treasue")) {
+      System.out.println("entered treasure room");
+    }
+    if (room.getRoomType().equals("combat")) {
+      System.out.println("entered combat room");
+    }
+    if (room.getRoomType().equals("trap")) {
+      System.out.println("entered trap room");
+    }
   }
 
   /*
