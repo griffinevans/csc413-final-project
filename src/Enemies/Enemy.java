@@ -1,6 +1,7 @@
 abstract class Enemy {
   int maxHealth;
   int currHealth;
+  int attackPower;
 
   public void takeDamage(int damage) {
     currHealth -= damage;
@@ -10,5 +11,8 @@ abstract class Enemy {
     return (currHealth >= 0)? true : false;
   }
 
-  public abstract void attack();
+  public int getAttackPower() {
+    return attackPower;
+  }
+
 }
