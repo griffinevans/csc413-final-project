@@ -1,3 +1,2 @@
 #!/bin/bash
-javac src/*.java -d target/ 
-#java -cp target AdventureGame 
+javac $(find . -name '*.java') -d target/

@@ -20,6 +20,10 @@ class InputManager {
       "go back", "leave", "exit", "retreat", "go south"
   ); 
 
+  private static final Set<String> ATTACK_COMMANDS = Set.of(
+      "attack", "strike"
+  );
+
   private InputManager() {
     sc = new Scanner(System.in);
   }
@@ -45,20 +49,12 @@ class InputManager {
     if(RETREAT_COMMANDS.contains(input)) {
       return "retreat";
     }
+    if(ATTACK_COMMANDS.contains(input)) {
+      return "attack";
+    }
 
     //if no valid match found, return
     System.out.println("I don't know the word " + input);
     return "invalid";
-
-    /*
-    switch(input) {
-      case "look":
-        System.out.println("You see a room");
-        break;
-      default:
-        System.out.println("I don't know the word " + input);
-        break;
-    }
-  */
   }
 }

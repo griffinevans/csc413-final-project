@@ -82,6 +82,7 @@ class GameManager {
       System.out.println("entered treasure room");
     }
     if (room.getRoomType().equals("combat")) {
+      
       System.out.println("entered combat room");
     }
     if (room.getRoomType().equals("trap")) {

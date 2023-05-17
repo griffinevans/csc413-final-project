@@ -2,6 +2,7 @@ abstract class Enemy {
   int maxHealth;
   int currHealth;
   int attackPower;
+  String name;
 
   public void takeDamage(int damage) {
     currHealth -= damage;
@@ -13,6 +14,10 @@ abstract class Enemy {
 
   public int getAttackPower() {
     return attackPower;
+  }
+
+  public String getName() {
+    return name;
   }
 
 }
